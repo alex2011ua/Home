@@ -1,0 +1,146 @@
+{% extends "selection_avto/base_start.html" %}
+{% load static %}
+{% block title %}Анализ рынка{% endblock %}
+
+{% block main %}
+<div  class="container py-5">
+    <div class="row mb-4">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1 class="display-6 my-time">Выбор автоомобиля по параметрам</h1>
+        </div>
+    </div> <!-- End -->
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card ">
+                <div class="card-header">
+                    <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
+                        <!-- Credit card form tabs -->
+                        По Вашему запросу было найдено <span id="ccount" class="count_avto"> {{count}} </span> автомобилей!
+                    </div> <!-- End -->
+                    <!-- Credit card form content -->
+                    <div class="tab-content">
+                        <!-- credit card info-->
+                        <div id="credit-card" class="tab-pane fade show active pt-3">
+                            <form id="myForm" role="form" method="get" action="/"  >
+
+
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <div class="form-group"> <label><span class="hidden-xs">
+                                                    <h6>Год выпуска</h6>
+                                                </span></label>
+                                            <div class="input-group"> <input type="number" value="{{ s_yers.0 }}" name="s_yers" class="form-control" required > <input type="number" value="{{po_yers.0}}" name="po_yers" class="form-control" required> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <div class="form-group"> <label><span class="hidden-xs">
+                                                    <h6>Price</h6>
+                                                </span></label>
+                                            <div class="input-group"> <input type="number" value="{{price_ot}}" name="price_ot" class="form-control" required> <input type="number" value="{{price_do}}" name="price_do" class="form-control" required> </div>
+                                        </div>
+                                    </div>
+                                </div>
+{% csrf_token %}
+                                <div class="row">
+    <div class="col-sm-8">
+        <div class="form-group"> <label><span class="hidden-xs">
+            <h6>Топливо</h6>
+        </span></label>
+            <div class="input-group">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1" name="benz" {% if '1' in type %} checked {% endif %} >
+                    <label class="form-check-label" for="inlineCheckbox1" >Бензин</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="2" name="dizel" {% if '2' in type %} checked {% endif %}>
+                    <label class="form-check-label" for="inlineCheckbox2" >Дизель</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="4" name="gaz" {% if '4' in type %} checked {% endif %}>
+                    <label class="form-check-label" for="inlineCheckbox3">Газ</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="6" name="elektro" {% if '6' in type %} checked {% endif %}>
+                    <label class="form-check-label" for="inlineCheckbox4">Электро</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-8">
+        <div class="form-group"> <label><span class="hidden-xs">
+        <h6>Коробка передач</h6>
+        </span></label>
+            <div class="input-group">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="gearbox1" value="1" name="mex" {% if '1' in gearbox %} checked {% endif %}>
+                    <label class="form-check-label" for="gearbox1" >Механика</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="gearbox2" value="2" name="avtomat" {% if '2' in gearbox %} checked {% endif %}>
+                    <label class="form-check-label" for="gearbox2" >Автомат</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="gearbox3" value="3" name="tip" {% if '3' in gearbox %} checked {% endif %}>
+                    <label class="form-check-label" for="gearbox3">Типтроник</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                                <div class="card-footer"> </div>
+                                <button type="submit" formaction="analiz" class="subscribe btn btn-warning btn-block shadow-sm"> Анализ найденых автомобилей! </button>
+                                <span class="count_avto"> {{ error }} </span>
+                            </form>
+                        </div>
+
+                    </div> <!-- End -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="result"></div>
+В кеше находится: {{kesh}} запросов.
+<a class="btn btn-primary" onclick='return confirm("Are you sure?")' href="clear_baze/" role="button">Очистить кеш!</a>
+<script type="text/javascript">
+    function count(){
+        let data = $('#myForm').serializeArray();
+            $.ajax({
+	            url: 'ajax/',
+	            method: 'POST',
+    	        data: data,
+            })
+            .done(function(text) {
+	            $('#ccount').html(text);
+            })
+    }
+
+    $(document).ready(function(){
+        count()
+        $("#button_count").click(function(){
+            count()
+        });
+
+    });
+    const form = document.getElementById('myForm');
+    form.addEventListener('focusout', (event) => {
+        let data = $('#myForm').serializeArray();
+            $.ajax({
+	            url: 'ajax/',
+	            method: 'POST',
+    	        data: data,
+            })
+            .done(function(text) {
+	            $('#ccount').html(text);
+            })
+    });
+        form.addEventListener('click', (event) => {
+        count()
+    });
+</script>
+
+{% endblock %}

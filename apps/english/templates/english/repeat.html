@@ -1,0 +1,45 @@
+{% extends "english/base_english.html" %}
+{% load static %}
+{% block main %}
+
+{% csrf_token %}
+<h4>
+<div id="word" class="alert alert-primary" role="alert">
+  Загрузка слов!
+</div>
+  </h4>
+
+  <div id="start" class="form-group">
+    <label for="vvod">Перевод:</label>
+    <input id="vvod" onload="start()" type="text" autocomplete="off" class="form-control"  placeholder="...">
+  </div>
+  <button id="submit_button" type="submit">Проверить</button>
+
+
+
+<hr>
+<h4 class="alert-heading">
+<span id="result" class="alert alert-success" style="display: none">Answer</span>
+
+<div id="ok" class="alert alert-danger" role="alert" style="display: none">
+  Не верно.
+</div></h4>
+<button id="dellete_word" type="button" class="btn btn-danger" style="display: none">Удалить?</button>
+<div id="error" class="alert alert-success" role="alert" style="display: none">
+  Верно! Удалено.
+</div>
+<hr>
+Загружено слов - <span id="count_is">{{count}}</span><hr>
+    <div> Всего слов - <span id="count_all">{{count_all}}</span> </div>
+    <div> Всего выучено слов - <span id="count_learn">{{count_learn}}</span> </div>
+    <div> Cлов > 5 - <span id="count_5">{{count_5}}</span> </div>
+    <div> Cлов = 4 - <span id="count_4">{{count_4}}</span> </div>
+    <div> Cлов = 3 - <span id="count_3">{{count_3}}</span></div>
+    <div> Cлов = 2 - <span id="count_2">{{count_2}}</span></div>
+    <div> Cлов = 1 - <span id="count_1">{{count_1}}</span></div>
+
+{% endblock %}
+
+{% block script %}
+  <script type="text/javascript" src='{% static "english/repeat.js" %}'></script>
+{% endblock %}

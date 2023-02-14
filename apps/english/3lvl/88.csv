@@ -1,0 +1,183 @@
+bring-to,for; to-приносить
+give-to,for; to-дать, подать, дарить
+hand-to,for; to-передать, вручить
+lend-to,for; to-одолжить кому-то
+mail-to,for; to-отправить по почте
+offer-to,for; to-предлагать
+pass-to,for; to-передать
+pay-to,for; to-платить
+promise-to,for; to-обещать
+read-to,for; to-читать
+recommend-to,for; to-рекомендовать
+sell-to,for; to-продавать
+send-to,for; to-посылать, отправлять, отсылать
+show-to,for; to-показывать
+sing-to,for; to-петь, напевать
+take-to,for; to-брать, хватать, взять
+teach-to,for; to-учить, обучать
+tell-to,for; to-рассказывать
+throw-to,for; to-бросать, кидать, метать
+write-to,for; to-писать, записывать
+wish-to,for; to-желать
+bake-to,for; for-печь выпекать
+book-to,for; for-бронировать
+build-to,for; for-строить, сооружать
+buy-to,for; for-покупать, приобретать
+catch-to,for; for-ловить, поймать, схватить
+choose-to,for; for-выбирать
+cook-to,for; for-готовить еду
+cut-to,for; for-резать, разрезать, нарезать
+find-to,for; for-находить, обнаруживать
+get=buy-to,for; for-покупать
+keep-to,for; for-хранить, сохранять, поддерживать, продолжать
+make-to,for; for-делать
+order-to,for; for-заказывать
+paint-to,for; for-красить; рисовать красками
+peel-to,for; for-отслаиваться, отшелушиваться
+pour-to,for; for-облить, налить
+prepare-to,for; for-подготовить
+reserve-to,for; for-бронировать
+save-to,for; for-сохранить, приберечь
+win-to,for; for-победить, выиграть
+admit-gerund,infinitive,all; gerund-признавать
+appreciate-gerund,infinitive,all; gerund-ценить
+avoid-gerund,infinitive,all; gerund-избегать
+complete-gerund,infinitive,all; gerund-завершать
+consider-gerund,infinitive,all; gerund-рассматривать, обдумувать
+delay-gerund,infinitive,all; gerund-откладывать
+deny-gerund,infinitive,all; gerund-отрицать
+discuss-gerund,infinitive,all; gerund-обсуждать
+dislike-gerund,infinitive,all; gerund-не нравиться
+enjoy-gerund,infinitive,all; gerund-наслаждаться, получать удовольствие от
+finish-gerund,infinitive,all; gerund-заканчивать
+give up-gerund,infinitive,all; gerund-дать, подать, дарить
+keep-gerund,infinitive,all; gerund-хранить, сохранять, поддерживать
+not mind-gerund,infinitive,all; gerund-быть не против, не возражать
+miss-gerund,infinitive,all; gerund-пропускать; скучать
+practice-gerund,infinitive,all; gerund-практиковать
+put off-gerund,infinitive,all; gerund-отложить на время
+quit-gerund,infinitive,all; gerund-бросать, переставать (что-то делать), покидать
+recommend-gerund,infinitive,all; gerund-рекомендовать
+resist-gerund,infinitive,all; gerund-оказывать сопротивление
+risk-gerund,infinitive,all; gerund-рисковать
+suggest-gerund,infinitive,all; gerund-предложить
+understand-gerund,infinitive,all; gerund-понимать, постигать
+less-count,uncount; uncount-меньше
+fewer-count,uncount; count-меньше
+agree-gerund,infinitive,all; infinitive-соглашаться
+ask-gerund,infinitive,all; infinitive-просить
+choose-gerund,infinitive,all; infinitive-выбирать, избирать
+decide-gerund,infinitive,all; infinitive-принимать решение
+hope-gerund,infinitive,all; infinitive-надеяться
+intend-gerund,infinitive,all; infinitive-намереваться
+manage-gerund,infinitive,all; infinitive-управлять, справляться
+need-gerund,infinitive,all; infinitive-нуждаться
+offer-gerund,infinitive,all; infinitive-предлагать
+plan-gerund,infinitive,all; infinitive-планировать
+promise-gerund,infinitive,all; infinitive-обещать
+want-gerund,infinitive,all; infinitive-хотеть
+delighted-gerund,infinitive,all; infinitive-восхищенный
+glad-gerund,infinitive,all; infinitive-рад
+happy-gerund,infinitive,all; infinitive-счастливый
+excited-gerund,infinitive,all; infinitive-в восторге, взволнованный
+nice-gerund,infinitive,all; infinitive-милый приятный
+pleased-gerund,infinitive,all; infinitive-довольный
+sad-gerund,infinitive,all; infinitive-печальный
+smart-gerund,infinitive,all; infinitive-умный
+sorry-gerund,infinitive,all; infinitive-
+stupid-gerund,infinitive,all; infinitive-глупый
+be busy-gerund,infinitive,all; gerund-быть занятым
+can't help-gerund,infinitive,all; gerund-не в состоянии удержаться
+it's no use-gerund,infinitive,all; gerund-это бесполезно
+it's not worth-gerund,infinitive,all; gerund-это не стоит того, чтобы
+it's worth-gerund,infinitive,all; gerund-это стоит того, чтобы
+need help-gerund,infinitive,all; gerund-нужна помощь
+have an amazing time-gerund,infinitive,all; gerund-удивительно провести время
+have a difficult time-gerund,infinitive,all; gerund-иметь трудности
+have a fun time-gerund,infinitive,all; gerund-весело провести время
+have a good time-gerund,infinitive,all; gerund-хорошо провести время
+have a great time-gerund,infinitive,all; gerund-прекрасно провести время
+have a hard time-gerund,infinitive,all; gerund-испытывать трудности с
+have a terrible time-gerund,infinitive,all; gerund-ужасно провести время
+have a trouble-gerund,infinitive,all; gerund-испытывать трудность
+look forward to-gerund,infinitive,all; gerund-с нетерпением ждать
+save money-gerund,infinitive,all; gerund-откладывать деньги
+lose time-gerund,infinitive,all; gerund-терять время
+waste money-gerund,infinitive,all; gerund-терять деньги
+spend time-gerund,infinitive,all; gerund-проводить время
+apologize for-gerund,infinitive,all; gerund-просить прощение за
+be excited about-gerund,infinitive,all; gerund-быть взволнованным из-за
+have an excuse for-gerund,infinitive,all; gerund-иметь причину/оправдание для
+thank somebody for-gerund,infinitive,all; gerund-благодарить кого-то за
+be interested in-gerund,infinitive,all; gerund-быть заинтересованным в
+be tired of-gerund,infinitive,all; gerund-устать от
+be opposed to-gerund,infinitive,all; gerund-выступать против
+insist on-gerund,infinitive,all; gerund-настаивать на
+talk about/of-gerund,infinitive,all; gerund-говорить о
+dream about/of-gerund,infinitive,all; gerund-мечтать о
+think about-gerund,infinitive,all; gerund-думать о
+complain about-gerund,infinitive,all; gerund-жаловаться на
+worry about-gerund,infinitive,all; gerund-беспокоиться о
+begin-gerund,infinitive,all; all-начинать
+like-gerund,infinitive,all; all-нравиться
+start-gerund,infinitive,all; all-начать
+continue-gerund,infinitive,all; all-продолжить
+love-gerund,infinitive,all; all-любить
+hate-gerund,infinitive,all; all-ненавидеть
+prefer-gerund,infinitive,all; all-предпочитать
+can't stand-gerund,infinitive,all; all-не выносить, не в состоянии терпеть
+an appointment(with) - make, do; make - договориться о встрече с
+arrangements(for)- make, do; make - сделать приготовления
+the bed- make, do; make - застелить постель
+coffee(for)- make, do; make - приготовить кофе для
+a call(to)- make, do; make - сделать телефонный звонок
+a complaint(about)- make, do; make - жаловаться (о)
+a decision(about)- make, do; make - принять решение (о)
+dinner- make, do; make - приготовить ужин
+an effort(to)- make, do; make - сделать усилие
+an excuse(for)- make, do; make - придумать оправдание
+friends(with)- make, do; make - подружиться
+a fuss(about)- make, do; make - поднять шум, суету
+a good/bad impression(on)- make, do; make - произвести хорошее впечатление
+a list(of)- make, do; make - составить список
+a mistake(in)- make, do; make - допустить ошибку
+a noise- make, do; make - шуметь
+plans(for)- make, do; make - строить планы
+a profit(on)- make, do; make - получить выгоду(прибыль)
+progress(in)- make, do; make - делать прогресс в
+a promise(to)- make, do; make - дать обещание
+a reservation(for)- make, do; make - забронировать для
+a resolution(to)- make, do; make - пообещать самону себе что-то
+a scene- make, do; make - устроить сцену
+a speech(to)- make, do; make - выступать с речью
+a suggestion (about/to)- make, do; make - предложить (что-то)
+trouble(for)- make, do; make - сделать проблеммы (для)
+a problem- make, do; make - создать проблему
+one's best- make, do; do -сделать все возможное
+business(with)- make, do; do -иметь дело (с)
+the cleaning- make, do; do -сделать уборку
+a crossword puzzle- make, do; do -разгадывать кроссворд
+damage(to)- make, do; do -нанести узерб
+the dishes- make, do; do -мыть посуду
+one's duty- make, do; do -выполнять долг
+errands- make, do; do -выполнять поручения
+an exercise- make, do; do -делать упражнения
+an experiment(with)- make, do; do -проводить эксперимент (с)
+a favor(for)- make, do; do - делать одолжение
+a good job(on)- make, do; do - хорошо выполнять работу
+one's hair- make, do; do -делат прическу
+harm(to)- make, do; do - вредить
+the ironing- make, do; do - погладить
+one's homework- make, do; do -делать домашнее задание
+the housework- make, do; do - делать работу по дому
+a job- make, do; do -выполнять работу
+the laundry- make, do; do - постирать
+an operation(on)- make, do; do - провести операцию
+the vacuuming- make, do; do - пылесосить
+a research (on)- make, do; do - провести исследование (на тему)
+the shopping- make, do; do - делать покупки
+something interesting(for)- make, do; do - делать что-то интересное (для)
+well/badly- make, do; do -преуспевать/не успеать
+work- make, do; do -делать работу
+one's make_up- make, do; do -наносить макияж
+one's nails- make, do; do -делать маникюр
