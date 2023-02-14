@@ -1,0 +1,49 @@
+{% extends "english/base_english.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href='{% static "english/css/english.css" %}'>
+{% endblock %}
+{% block main %}
+
+{% csrf_token %}
+<h4>
+    <div id="word" class="alert alert-primary" role="alert">
+        Загрузка слов!
+    </div>
+</h4>
+
+<div id="start" class="form-group">
+    <button id="gerund_button" type="button" class="btn-outline-success play-button">Gerund(ing)</button>
+    <button id="infinitive_button" type="button" class="btn-outline-info play-button">Infinitive(to)</button>
+    <button id="all_of_them" type="button" class="btn-outline-warning play-button">All(ing or to)</button>
+    <button id="to_button" type="button" class="btn-outline-success play-button">To</button>
+    <button id="for_button" type="button" class="btn-outline-info play-button">For</button>
+    <button id="make_button" type="button" class="btn-outline-success play-button">Make</button>
+    <button id="do_button" type="button" class="btn-outline-info play-button">Do</button>
+    <button id="countable_button" type="button" class="btn-outline-success play-button">countable</button>
+    <button id="uncountable_button" type="button" class="btn-outline-info play-button">uncountable</button>
+</div>
+
+<hr>
+<h4 class="alert-heading">
+    <span id="result" class="alert alert-success" style="display: none">Answer</span>
+    <div id="error" class="alert alert-danger" role="alert" style="display: none">
+        Не верно.
+    </div>
+</h4>
+
+<button id="dellete_word" type="button" class="btn btn-danger" style="display: none">Удалить?</button>
+
+<button id="learned" type="button" class="btn btn-outline-success" style="display: none">Выучено</button>
+
+<div id="ok" class="alert alert-success" role="alert" style="display: none">
+    Верно!
+</div>
+<hr>
+Загружено слов - <span id="count_is">{{count}}</span> правильно отвечено: <span
+        id="count_true">0</span>  Не правильно отвечено:<span id="count_false">0</span>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript" src='{% static "english/play.js" %}'></script>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "english/base_english.html" %}
+{% load static %}
+{% block main %}
+
+{% csrf_token %}
+<h4>
+<div id="word" class="alert alert-primary" role="alert">
+  Загрузка слов!
+</div>
+  </h4>
+
+  <div id="start" class="form-group">
+    <label for="vvod">Перевод:</label>
+    <input id="vvod" onload="start()" type="text" autocomplete="off" class="form-control"  placeholder="...">
+  </div>
+  <button id="submit_button" type="submit">Проверить</button>
+
+
+
+<hr>
+<h4 class="alert-heading">
+<span id="result" class="alert alert-success" style="display: none">Answer</span>
+
+<div id="ok" class="alert alert-danger" role="alert" style="display: none">
+  Не верно.
+</div></h4>
+<button id="dellete_word" type="button" class="btn btn-danger" style="display: none">Удалить?</button>
+<button id="heavy" type="button" class="btn" style="display: inline" >Сложное</button>
+
+<button id="learned" type="button" class="btn " style="display: inline" >Выучено</button>
+
+<button id="important" type="button" class="btn" style="display: inline" >Important</button>
+
+<div id="error" class="alert alert-success" role="alert" style="display: none">
+  Верно! Удалено.
+</div>
+<hr>
+Загружено слов - <span id="count_is">{{count}}</span>
+{% endblock %}
+
+{% block script %}
+  <script type="text/javascript" src='{% static "english/r-e.js" %}'></script>
+{% endblock %}

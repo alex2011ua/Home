@@ -1,0 +1,91 @@
+{% extends "selection_avto/base_start.html" %}
+{% load static %}
+{% block title %}Анализ рынка{% endblock %}
+
+{% block main %}
+{% csrf_token %}
+
+    <div class="row mb-4">
+        <div class="col-lg-8 mx-auto text-center">
+            <a class="btn btn-primary" href="/avto" role="button">Назад</a>
+            <h1 class="display-7 my-time">Список автомобилей</h1>
+            <p> соответствующие Вашим параметрам, которые сейчас продаются:</p>
+        </div>
+    </div> <!-- End -->
+<div class="container-fluid bg" id="avto">Идет процесс анализа. Ждите!</div>
+<div class="progress">
+  <div id="progress" class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<script>
+    let csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+    let baza_avto = [];
+    $.ajaxSetup({
+        headers: {
+            'X-CSRFToken': csrftoken
+        }
+    });
+$(document).ready(function(){
+    let list_avto = {{ car_list|safe }};
+    for (list_a in list_avto){
+        let avto_array = list_avto[list_a];
+        let data ={list_avto: avto_array };
+        $.ajax({
+            url: 'ajax/analiz/',
+            method: 'POST',
+            data: data,
+            dataType: 'json',
+            success: function () {
+                for (ite in avto_array){
+                    baza_avto.push(avto_array[ite]);
+                };
+                $('#avto').html(baza_avto.length);
+                $('#progress').css( 'width', baza_avto.length+'%' )
+                if (baza_avto.length == {{count_avto_in}}){
+                    zvit()
+                }
+            },
+            error: function (text) {
+                $.ajax({
+                    url: 'ajax/analiz/',
+                    method: 'POST',
+                    data: data,
+                    dataType: 'json',
+                    success: function () {
+                        for (ite in avto_array){
+                            baza_avto.push(avto_array[ite]);
+                        };
+                        $('#avto').html(baza_avto.length);
+                        $('#progress').css( 'width', baza_avto.length+'%' )
+                        if (baza_avto.length == {{count_avto_in}}){
+                            zvit()
+                        }
+                    },
+                    error: function (text) {
+                        console.log('error');
+                        console.log(text);
+                    },
+                })
+            },
+        })
+    };
+
+    function zvit(){
+        let baza = {baza: baza_avto}
+    $.ajax({
+            url: 'ajax/zvit/',
+            method: 'POST',
+            data: baza,
+            success: function (text) {
+                console.log('__ok__');
+                console.log(text);
+                $('#avto').html(text);
+            },
+            error: function (text) {
+                console.log('__1__');
+                console.log(text);
+            },
+        })
+    }
+});
+</script>
+{% endblock %}

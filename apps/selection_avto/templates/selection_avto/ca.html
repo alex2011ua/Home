@@ -1,0 +1,14 @@
+<div class="row mt-5">{% for avto in baza_avto %}
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 time_center">
+        <div class="card">
+          <div class="embed-responsive embed-responsive-16by9">
+             <img class="card-img-top embed-responsive-item" src="{{avto.3}}" alt="" />
+          </div>
+          <div class="card-body">
+            <h2 class="h5 card-title">{{ avto.2 }},{{avto.7}}, {{avto.4}} года. - {{ avto.0 }} шт. </h2>
+            <p class="card-text">{{ avto.1 }} USD (средняя цена), Пробег(средний) - {{avto.6}}тыс.</p>
+            <a href="https://auto.ria.com/uk{{avto.5}}" target="_blank" class="btn btn-primary">Посмотреть</a>
+          </div>
+        </div>
+      </div>{% endfor %}
+    </div>
