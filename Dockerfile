@@ -22,5 +22,5 @@ COPY . /code/
 RUN python manage.py collectstatic --noinput
 
 EXPOSE 8000
+ENTRYPOINT honcho start
 
-CMD ["gunicorn", "--bind", ":8000", "--workers", "2", "AlexUA_Home.wsgi"]

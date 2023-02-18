@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^zu#y#&xp6osjy7v)yl8pe)_%*2e*7@bphh282jn#v6ktd#sw0'
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY") or "sdfdvr3gt5"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG") or True
 
-ALLOWED_HOSTS = ["alexua.fly.dev", '127.0.0.1']
+ALLOWED_HOSTS = ["alexua.fly.dev", '127.0.0.1', 'localhost', "0.0.0.0"]
 
 
 # Application definition
@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ["alexua.fly.dev", '127.0.0.1']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -48,8 +49,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "AlexUA_Home"
+    "AlexUA_Home",
     # installed apps
+    'django_extensions',
     # custom apps
 
 
@@ -121,7 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+STATIC_ROOT = BASE_DIR / "staticfiles"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 

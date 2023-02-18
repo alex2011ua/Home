@@ -1,20 +1,21 @@
 <!DOCTYPE html>
+{% load static%}
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="static/start/css/custom.css">
+    <link rel="stylesheet" href="{% static 'start/css/custom.css' %}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
     <title>Oleksii Kovalenko</title>
-    <link rel="shortcut icon" type="image/jpg" href="static/favicon.ico"/>
-    <link rel="icon" type="static/png" href="/static/favicon.ico" />
+    <link rel="shortcut icon" type="image/jpg" href="{% static 'favicon.ico' %}"/>
+    <link rel="icon" type="static/png" href="{% static 'favicon.ico' %}" />
       <meta property="og:title" content="Oleksii Kovalenko, Python dev.">
       <meta property="og:type" content="website">
-      <meta property="og:image" content="static/og.gif">
+      <meta property="og:image" content="{% static 'og.gif' %}">
   </head>
   <body>
 
@@ -23,7 +24,7 @@
         <nav class="navbar navbar-expand-lg mb-5 navbar-dark">
           <a href="/" class="navbar-brand logo d-flex align-items-center text-white text-decoration-none align-content-start">
             <div class="logo-left pr-2">
-              <img src="static/img/foto%20AK.jpg" alt="" class="rounded-circle" width="54">
+              <img src="{% static 'img/fotoAK.jpg' %}" alt="OK" class="rounded-circle" width="54">
             </div>
             <div class="logo-right ">
               <div class="logo-title">Oleksii Kovalenko</div>
@@ -107,8 +108,8 @@
 
                 <a href="https://career.softserveinc.com/uk-ua/certification/verification" class="story-link" target="_blank">Python online marathon</a></li>
           </ul>
-          <a href="static/start/Certificate SoftServe Marathon.jpg" target="_blank">
-           <img src="static/start/Certificate SoftServe Marathon.jpg" alt="" class="w-100 pb-4"></a>
+          <a href="{% static 'start/Certificate SoftServe Marathon.jpg' %}" target="_blank">
+           <img src="{% static 'start/Certificate SoftServe Marathon.jpg' %}" alt="" class="w-100 pb-4"></a>
           <p class="pb-3">I couldn't complete my internship at Yalantis because the war started.</p>
 
           <p class="pb-3">During the study I used <abbr class="names"> Git</abbr>  to synchronize the code on your home and work computer.
@@ -124,7 +125,7 @@
 
         <div class="row">
           <div class="col-12 col-sm-12 mb-5">
-            <img src="static/img/engilsh.jpg" alt="" class="w-50 pb-4 leftimg">
+            <img src="{% static 'img/engilsh.jpg' %}" alt="" class="w-50 pb-4 leftimg">
             <p>Learning English words</p>
             <p>When studying in English courses, there is a need to learn words. I made interface that helps me in
               this is not an easy task! I can learn words on the subway when you put the children to bed, before going to bed, etc. Technologies involved:
@@ -138,7 +139,7 @@
 
         <div class="row">
           <div class="col-12 col-sm-12 mb-5">
-            <img src="static/img/avto.gif" alt="" class="w-50 pb-4 leftimg">
+            <img src="{% static 'img/avto.gif' %}" alt="" class="w-50 pb-4 leftimg">
             <p>Page for selecting a car based on the number of cars sold</p>
             <p>Using the API, I send a request to auto.ria.com to get a list of cars that match the parameters.
               Then a list of lists to be sent is formed <abbr class="names">AJAX</abbr> server requests. Vehicle information is cached.</p>
@@ -152,9 +153,9 @@
           <div class="col-12 col-sm-12 mb-5">
 
             <p>I live in a private house. In my free time, I am engaged in the implementation and constant modernization of the personal project "Smart Home".</p>
-            <img src="static/img/smart_home.gif" alt="" class="w-100 pb-4">
+            <img src="{% static 'img/smart_home.gif' %}" alt="" class="w-100 pb-4">
 
-            <img src="static/img/smart_home2.gif" alt="" class="leftimg">
+            <img src="{% static 'img/smart_home2.gif' %}" alt="" class="leftimg">
             <p class="mb-3">
               Implemented a smart home project by using<abbr class="names"> Django</abbr>.<br>
               Running server on mini computer <abbr class="names"> Raspberry</abbr> on which installed and configured <abbr class="names"> Nginx</abbr>, <abbr class="names"> Gunicorn</abbr>.<br>
@@ -189,7 +190,7 @@
           </div>
 -->
           <div class="col-12 col-sm-6 mb-5">
-            <img src="static/img/flask.gif" alt="" class="w-100 pb-4">
+            <img src="{% static 'img/flask.gif'%}" alt="" class="w-100 pb-4">
             <p class="mb-3"><abbr class="names"> Flask</abbr>. Search engine for tours. 3 screens: home, direction, tour.</p>
 
               <a href="https://github.com/alex2011ua/search_tours" target="_blank" class="link">Source</a>
@@ -197,7 +198,7 @@
           </div>
 
           <div class="col-12 col-sm-6 mb-5">
-            <img src="static/img/restoran.gif" alt="" class="w-100 pb-4">
+            <img src="{% static 'img/restoran.gif' %}" alt="" class="w-100 pb-4">
             <p class="mb-3"><abbr class="names"> Flask</abbr>. Drone food delivery service <abbr class="names"> MySQL</abbr>, user authentication, admin panel, personal account.</p>
             <p>
               <a href="https://github.com/alex2011ua/flask_restoran" target="_blank" class="link">Source</a>
