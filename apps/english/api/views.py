@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User
 from rest_framework import generics
 
-from english.api.serializer import WordsSerializer
-from english.models import Words, WordParams
+from apps.english.api.serializer import WordsSerializer
+from apps.english.models import Words, WordParams
 
 
 class WordRUD(generics.RetrieveUpdateDestroyAPIView):

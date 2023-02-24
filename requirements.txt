@@ -8,3 +8,6 @@ honcho==1.0.0
 python-telegram-bot==20.1
 django-extensions==3.1.5
 psycopg2-binary
+djangorestframework==3.14.0
+django-crispy-forms
+crispy-bootstrap5

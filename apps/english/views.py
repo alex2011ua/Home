@@ -4,12 +4,15 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from django.views import View
-
+from django.contrib.auth import authenticate, login
 from .form import CompareWordForm, LoadWordForm, LoadWordsForm, SearchWordForm, WordsParamForm
 from .models import WordParams, Words
+from django.contrib.auth.models import User
+import logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.WARNING)
+logger = logging.getLogger(__name__)
 
-
-@login_required
 def index(request):
     """
     Выбор списка слов
@@ -17,6 +20,16 @@ def index(request):
     :return:
     """
     if request.method == "GET":
+        if not request.user.is_authenticated:
+            user = authenticate(request, username="english", password="english")
+            if user is not None:
+                login(request, user)
+            else:
+                user = authenticate(request, username="spain", password="spain")
+                login(request, user)
+
+
+        logger.warning(request.user)
         try:
             params = WordParams.objects.get(user=request.user)
         except:
@@ -36,7 +49,7 @@ def index(request):
         return redirect("english:english_index")
 
 
-class Settings(LoginRequiredMixin, PermissionRequiredMixin, View):
+class Settings(LoginRequiredMixin, View):
     """
     Add new words
     """
@@ -206,7 +219,6 @@ def list_words(request):
 
 
 @login_required()
-@permission_required("is_staff")
 def word_update(request, id):
     """
     crud operations
@@ -261,7 +273,6 @@ def word_update(request, id):
 
 
 @login_required()
-@permission_required("is_staff")
 def word_delete(request, id):
     """
     crud operations

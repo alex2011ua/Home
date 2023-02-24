@@ -1,7 +1,7 @@
 from django.urls import include, path
 
-from english.view_game import GenrundGame
-from english.views import (
+from apps.english.view_game import GenrundGame
+from apps.english.views import (
     E_R,
     R_E,
     CompareWords,
@@ -20,7 +20,7 @@ from english.views import (
 
 app_name = "english"
 urlpatterns = [
-    path("api/", include("english.api.ruouter")),
+    path("api/", include("apps.english.api.ruouter")),
     path("", index, name="english_index"),
     path("settings/", Settings.as_view(), name="settings"),
     path("clear/", clear_control, name="clear"),

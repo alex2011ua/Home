@@ -57,11 +57,11 @@
         <li class="nav-item {% if request.path == '/english/compare/' %} active {% endif %}">
         <a class="nav-link" href="{% url 'english:CompareWords' %}">Compare <span class="sr-only">(current)</span></a>
       </li>
-        {% if user.is_staff %}
+{#        {% if user.is_staff %}#}
         <li class="nav-item  {% if request.path == '/english/settings/' %} active {% endif %}">
         <a class="nav-link disabled" href="{% url 'english:settings' %}">Control <span class="sr-only">(current)</span></a>
       </li>
-        {% endif%}
+{#        {% endif%}#}
 
     </ul>
       <a class="nav-link disabled"    href="#" >

@@ -1,6 +1,6 @@
 from django.urls import path
 
-from english.api import views
+from apps.english.api import views
 
 urlpatterns = [
     path("repeat_words/", views.RepeatWordListView.as_view()),

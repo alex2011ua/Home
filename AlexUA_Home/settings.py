@@ -24,8 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY") or "sdfdvr3gt5"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ["DEBUG"]
-print(DEBUG)
+DEBUG = os.getenv("DEBUG", True)
+
 ALLOWED_HOSTS = ["alexua.fly.dev", '127.0.0.1', 'localhost', "0.0.0.0"]
 
 
@@ -53,7 +53,11 @@ INSTALLED_APPS = [
     "AlexUA_Home",
     # installed apps
     'django_extensions',
+    "crispy_forms",
+    "crispy_bootstrap5",
+    "rest_framework",
     # custom apps
+    "apps.english"
 
 
 ]
@@ -76,7 +80,10 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'AlexUA_Home.wsgi.application'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+CSRF_TRUSTED_ORIGINS = ["https://*.alexua.fly.dev/*"]
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -88,13 +95,13 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-        'NAME': os.environ["POSTGRES_DB"],
+        'NAME': os.getenv("POSTGRES_DB"),
 
-        'USER': os.environ["POSTGRES_USER"],
+        'USER': os.getenv("POSTGRES_USER"),
 
-        'PASSWORD': os.environ["POSTGRES_PASSWORD"],
+        'PASSWORD': os.getenv("POSTGRES_PASSWORD"),
 
-        'HOST': os.environ["DB_HOST"],
+        'HOST': os.getenv("DB_HOST"),
 
         'PORT': os.getenv("PORT_DB", 5432),
 

@@ -1,2 +1,2 @@
 web: bash ./entrypoint.sh
-# bot: python manage.py runscript bot
+bot: python manage.py runscript bot

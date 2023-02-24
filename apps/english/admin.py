@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from english.models import WordParams, Words
+from apps.english.models import WordParams, Words
 
 
 @admin.register(Words)

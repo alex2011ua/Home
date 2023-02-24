@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from english.models import Words
+from apps.english.models import Words
 
 
 class WordsSerializer(serializers.ModelSerializer):
