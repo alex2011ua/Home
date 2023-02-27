@@ -16,6 +16,8 @@ from telegram.ext import (
     MessageHandler,
     filters,
 )
+from apps.english.models import Words
+from asgiref.sync import sync_to_async
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -24,18 +26,13 @@ logger = logging.getLogger(__name__)
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 
 reply_keyboard = [
-        ["Start learn", "List"],
-        ["English", "Add word"],
-    ]
+    ["Start learn", "List"],
+    ["English", "Add word"],
+]
 markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=False)
 
+
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    reply_keyboard = [
-        ["Start learn", "List"],
-        ["English", "Add word"],
-    ]
-    markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=False)
-    """Начvало разговора, просьба ввести данные."""
     await context.bot.send_message(
         chat_id=update.effective_chat.id,
         text="I'm a bot, please talk to me!",
@@ -43,19 +40,32 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 
-# async def word(update: Update, context: ContextTypes.DEFAULT_TYPE):
-#     reply_keyboard = [
-#         [word_o],
-#         ["I Know", "I don't know"],
-#         ["English", "Spain"],
-#     ]
-#     markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=False)
-#     logger.warning(word_o)
-#     await context.bot.send_message(
-#         chat_id=update.effective_chat.id,
-#         text="I'm a bot, please talk to me!" + str(update.effective_chat.id),
-#         reply_markup=markup,
-#     )
+@sync_to_async
+def save_word(word, translate):
+    return Words.objects.create(english=word, russian=translate)
+
+
+@sync_to_async
+def get_words():
+    all_words = Words.objects.all()
+    english_words = [word.english for word in all_words]
+    answer = str(len(english_words)) + ": " + ', '.join(english_words)
+    return answer
+
+
+@sync_to_async
+def get_word():
+    word = Words.objects.filter().order_by("?").first()
+    return word
+
+
+async def list_words(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    all_words = await get_words()
+    await context.bot.send_message(
+        chat_id=update.effective_chat.id,
+        text=all_words,
+        reply_markup=markup,
+    )
 
 
 async def start_add_word(update: Update, context) -> int:
@@ -72,7 +82,6 @@ async def start_add_word(update: Update, context) -> int:
 
 
 async def add_word(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
-    logger.warning("write word")
     word = update.message.text
     logger.debug("input word:" + word)
     context.user_data["word"] = word
@@ -85,7 +94,7 @@ async def add_word(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 
 
 async def add_translate_word(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    logger.warning("write translate word")
+    logger.info("write translate word")
     translate_ = update.message.text
     logger.debug("input word:" + translate_)
     context.user_data["translate"] = translate_
@@ -106,15 +115,9 @@ async def add_translate_word(update: Update, context: ContextTypes.DEFAULT_TYPE)
 async def save_word_to_db(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Вывод собранной информации и завершение разговора."""
     user_data = context.user_data
-    if "choice" in user_data:
-        del user_data["choice"]
-    reply_keyboard = [
-        ["Start learn", "List"],
-        ["English", "Add word"],
-    ]
-    markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=False)
+    new_word = await save_word(user_data["word"], user_data["translate"])
     await update.message.reply_text(
-        f"Save word to db",
+        f"Save word to db{new_word.id}",
         reply_markup=markup,
     )
     user_data.clear()
@@ -122,15 +125,9 @@ async def save_word_to_db(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
 
 
 async def not_save_word_to_db(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
-    """Вывод собранной информации и завершение разговора."""
     user_data = context.user_data
     if "choice" in user_data:
         del user_data["choice"]
-    reply_keyboard = [
-        ["Start learn", "List"],
-        ["English", "Add word"],
-    ]
-    markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=False)
     await update.message.reply_text(
         f"Not save word to db",
         reply_markup=markup,
@@ -138,38 +135,38 @@ async def not_save_word_to_db(update: Update, context: ContextTypes.DEFAULT_TYPE
     user_data.clear()
     return ConversationHandler.END
 
+
 async def start_learn(update: Update, context) -> int:
     logger.warning("start learn")
-    context.user_data["word"] = "some_word"
-    context.user_data["translate"] = "translate_word"
-
+    word = await get_word()
+    context.user_data["word"] = word.english
+    context.user_data["translate"] = word.russian
     await context.bot.send_message(
         chat_id=update.effective_chat.id,
-        text=f"word: {context.user_data['word']}",
+        text=f"word: {context.user_data['translate']}",
         reply_markup=ReplyKeyboardRemove()
     )
-
     return ORIGIN
 
 
 async def check_translate(update: Update, context) -> int:
-    logger.warning("start learn")
     user_data = context.user_data
-    text = update.message.text
-    if text == user_data['translate']:
+    text = update.message.text.lower()
+    if text == user_data['word']:
         text_answer = "right"
     else:
-        text_answer = "wrong"
+        text_answer = "wrong: " + user_data['word']
     await context.bot.send_message(
         chat_id=update.effective_chat.id,
         text=text_answer,
         reply_markup=markup
     )
-
     return ConversationHandler.END
+
 
 WORD, TRANSTATE, DONE = range(3)
 ORIGIN, SECOND = range(2)
+
 
 def run():
     conv_handler_add = ConversationHandler(
@@ -195,8 +192,7 @@ def run():
 
     application.add_handler(conv_handler_add)
     application.add_handler(conv_handler_learn)
-
+    application.add_handler(MessageHandler(filters.TEXT & filters.Regex("^List$"), list_words))
     application.add_handler(CommandHandler("start", start))
 
-    # Запуск бота.
     application.run_polling()
