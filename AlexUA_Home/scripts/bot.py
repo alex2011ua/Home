@@ -1,5 +1,6 @@
 import os
 import logging
+import random
 from typing import Dict
 
 from telegram import Update, InlineQueryResultArticle, InputTextMessageContent
@@ -18,6 +19,7 @@ from telegram.ext import (
 )
 from apps.english.models import Words
 from asgiref.sync import sync_to_async
+from django.conf import settings
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -27,7 +29,7 @@ TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 
 reply_keyboard = [
     ["Start learn", "List"],
-    ["English", "Add word"],
+    ["Random", "Add word"],
 ]
 markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=False)
 
@@ -55,8 +57,28 @@ def get_words():
 
 @sync_to_async
 def get_word():
-    word = Words.objects.filter().order_by("?").first()
+    word = Words.objects.filter(leaned=False).order_by("?").first()
     return word
+
+@sync_to_async
+def answer_word_true(english_word):
+    word = Words.objects.filter(englilsh=english_word).first()
+    if word.repeat_learn > 1:
+        word.repeat_learn = word.repeat_learn - 1
+        word.save()
+    else:
+        word.repeat_learn = 0
+        word.learned = True
+        word.save()
+
+
+@sync_to_async
+def answer_word_false(english_word):
+    word = Words.objects.filter(englilsh=english_word).first()
+    if word.repeat_learn < 6:
+        word.repeat_learn = word.repeat_learn + 1
+        word.save()
+
 
 
 async def list_words(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -64,6 +86,18 @@ async def list_words(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await context.bot.send_message(
         chat_id=update.effective_chat.id,
         text=all_words,
+        reply_markup=markup,
+    )
+
+
+async def random_choice(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    kira = os.path.join(settings.BASE_DIR, "AlexUA_Home", "scripts", "Kira.jpg")
+    nikita = os.path.join(settings.BASE_DIR, "AlexUA_Home", "scripts", "Nikita.jpg")
+    choice = (kira, nikita)[random.randint(0, 1)]
+    logger.warning(choice)
+    await context.bot.send_photo(
+        chat_id=update.effective_chat.id,
+        photo=(open(choice, 'rb')),
         reply_markup=markup,
     )
 
@@ -154,8 +188,10 @@ async def check_translate(update: Update, context) -> int:
     text = update.message.text.lower()
     if text == user_data['word']:
         text_answer = "right"
+        await answer_word_true()
     else:
         text_answer = "wrong: " + user_data['word']
+        await answer_word_false()
     await context.bot.send_message(
         chat_id=update.effective_chat.id,
         text=text_answer,
@@ -193,6 +229,7 @@ def run():
     application.add_handler(conv_handler_add)
     application.add_handler(conv_handler_learn)
     application.add_handler(MessageHandler(filters.TEXT & filters.Regex("^List$"), list_words))
+    application.add_handler(MessageHandler(filters.TEXT & filters.Regex("^Random$"), random_choice))
     application.add_handler(CommandHandler("start", start))
 
     application.run_polling()
