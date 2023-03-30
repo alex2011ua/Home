@@ -103,7 +103,7 @@ function start() {
     }
     let data = {}
 
-    if (inp.toLowerCase() === to_del.russian.toLowerCase()) { //right input
+    if (inp.toLowerCase() === to_del.russian.toLowerCase() || inp.toLowerCase() === "to " + to_del.russian.toLowerCase()) { //right input
 
         answer.innerText = to_del.russian + " - " + to_del.russian + "//" + to_del.repeat_learn + "//";
         if (control_state) {

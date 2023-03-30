@@ -57,12 +57,12 @@ def get_words():
 
 @sync_to_async
 def get_word():
-    word = Words.objects.filter(leaned=False).order_by("?").first()
+    word = Words.objects.filter(learned=False).order_by("?").first()
     return word
 
 @sync_to_async
 def answer_word_true(english_word):
-    word = Words.objects.filter(englilsh=english_word).first()
+    word = Words.objects.filter(english=english_word).first()
     if word.repeat_learn > 1:
         word.repeat_learn = word.repeat_learn - 1
         word.save()
@@ -74,7 +74,7 @@ def answer_word_true(english_word):
 
 @sync_to_async
 def answer_word_false(english_word):
-    word = Words.objects.filter(englilsh=english_word).first()
+    word = Words.objects.filter(english=english_word).first()
     if word.repeat_learn < 6:
         word.repeat_learn = word.repeat_learn + 1
         word.save()
@@ -186,12 +186,12 @@ async def start_learn(update: Update, context) -> int:
 async def check_translate(update: Update, context) -> int:
     user_data = context.user_data
     text = update.message.text.lower()
-    if text == user_data['word']:
+    if text == user_data['word'] or text == "to " + user_data['word']:
         text_answer = "right"
-        await answer_word_true()
+        await answer_word_true(user_data["word"])
     else:
         text_answer = "wrong: " + user_data['word']
-        await answer_word_false()
+        await answer_word_false(user_data["word"])
     await context.bot.send_message(
         chat_id=update.effective_chat.id,
         text=text_answer,
