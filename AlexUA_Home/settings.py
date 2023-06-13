@@ -12,7 +12,11 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-
+import logging
+# Enable logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.WARNING)
+logger = logging.getLogger(__name__)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,8 +28,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY") or "sdfdvr3gt5"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", True)
 
+debug = os.getenv("DEBUG", True)
+DEBUG = True if debug == "True" or debug is True else False
+print(debug)
+print(type(debug))
+print("DEBUG")
+print(DEBUG)
 ALLOWED_HOSTS = ["alexua.fly.dev", '127.0.0.1', 'localhost', "0.0.0.0"]
 
 
@@ -57,7 +66,8 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     "rest_framework",
     # custom apps
-    "apps.english"
+    "apps.english",
+    "apps.spain"
 
 
 ]

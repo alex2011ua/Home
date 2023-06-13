@@ -1,0 +1,16 @@
+{% extends "spain/base_spain.html" %}
+{% load crispy_forms_tags %}
+{% block main %}
+<form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+    {{form|crispy}}
+    <button type="submit" class="btn btn-primary">Найти</button>
+</form>
+{% if second_word %}
+<h5>{{first_word}}</h5>
+<h5>{{second_word}}</h5>
+{% endif %}
+{{answer}}
+
+
+{% endblock %}

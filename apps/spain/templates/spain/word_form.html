@@ -1,0 +1,60 @@
+{% extends "spain/base_spain.html" %}
+
+{% block main %}
+
+
+
+<form action="" method="post">
+{% csrf_token %}
+
+<div class="">
+    <label for="spain" class="form-label">Spain</label>
+    <input type="text" class="form-control" name="spain" value="{{ word.spain }}" >
+  </div>
+    <div class="">
+        <label for="russian" class="form-label">russian</label>
+        <input type="text" class="form-control" name="russian" value="{{ word.russian }}" >
+    </div>
+  <div class="">
+    <label for="info" class="form-label">info</label>
+    <input type="text" class="form-control" name="info" value="{{ word.info }}" >
+  </div>
+
+     <div class="row">
+         <div class="col card">
+    <label for="learned" class="form-label">learned</label>
+    <input type="checkbox" class="form-control" name="learned" {% if word.learned  %} checked {% endif %} >
+         </div>
+
+
+     <div class="col card"
+    <label for="heavy" class="form-label">heavy</label>
+    <input type="checkbox" class="form-control" name="heavy" {% if word.heavy  %} checked {% endif %} >
+     </div>
+  </div>
+  <div class="row-cols-2">
+      <div class="mb-1">
+    <label for="lesson" class="form-label">lesson</label>
+    <input type="text" class="form-control" name="lesson" value="{{ word.lesson }}" >
+  </div>
+      <div class="mb-1">
+    <label for="repeat_learn" class="form-label">repeat</label>
+    <input type="text" class="form-control" name="repeat_learn" value="{{ word.repeat_learn }}" >
+  </div>
+  </div>
+
+
+
+<div class="col card">
+    <label for="irregular" class="form-label">irregular</label>
+    <input type="checkbox" class="form-control" name="irregular" {% if word.irregular_verbs  %} checked {% endif %} >
+</div>
+       <div class="col card">
+    <label for="important" class="form-label">important</label>
+    <input type="checkbox" class="form-control" name="important" {% if word.important  %} checked {% endif %} >
+</div>
+   </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

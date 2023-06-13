@@ -23,6 +23,7 @@ from .start_views import IndexView, RegisterView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('english/', include("apps.english.urls", namespace="english")),
+    path('spain/', include("apps.spain.urls", namespace="spain")),
     path("accounts/login/", views.LoginView.as_view(), name="login"),
     path("accounts/logout/", views.LogoutView.as_view(), name="logout"),
     path("accounts/register/", RegisterView.as_view(), name="register"),

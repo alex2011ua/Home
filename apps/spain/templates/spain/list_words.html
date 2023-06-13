@@ -1,0 +1,50 @@
+{% extends "spain/base_spain.html" %}
+
+{% block main %}
+Загружено слов - <span id="count_is">{{count}}</span>
+    <table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Урок</th>
+      <th scope="col">spain</th>
+      <th scope="col">russian</th>
+      <th scope="col">repeats</th>
+      <th scope="col">сложное</th>
+      <th scope="col">выучено</th>
+      <th scope="col">Exam</th>
+      <th scope="col">Irregular</th>
+      <th scope="col">Important</th>
+      <th scope="col">del</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for word in words %}
+    <tr>
+      <td>{{word.lesson}}</td>
+      <td>{{word.spain}}</td>
+      <td>{{word.russian}}</td>
+      <td>{{word.repeat_learn}}</td>
+      <td>{% if word.heavy %} <a class="heavy" href="{% url 'spain:update' word.id %}"   title="Heavy">Heavy</a> {% endif %} </td>
+      <td>{% if word.learned %} <a class="learned" href="{% url 'spain:update' word.id %}"   title="Learned">Learned</a> {% endif %} </td>
+      <td>{% if word.irregular_verbs %} <a class="irregular" href="{% url 'spain:update' word.id %}"   title="Irregular">Irregular</a> {% endif %} </td>
+      <td>{% if word.important %} <a class="irregular" href="{% url 'spain:update' word.id %}"   title="important">Important</a> {% endif %} </td>
+
+      <td>
+        <a href="{% url 'spain:update' word.id %}" class="btn text-secondary px-0">
+          <i class="far fa-edit fa-lg">Изменить</i>
+        </a>
+      </td>
+            <td>
+        <a href="{% url 'spain:delete' word.id %}" class="btn text-secondary px-0">
+          <i class="far fa-edit fa-lg">Del</i>
+        </a>
+      </td>
+
+
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

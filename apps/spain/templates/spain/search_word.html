@@ -1,0 +1,83 @@
+{% extends "spain/base_spain.html" %}
+
+{% block main %}
+<form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit" class="btn btn-primary">Найти</button>
+</form>
+{% if count %}
+найдено слов: {{count}}
+{% endif %}
+{% if spain_words %}
+    <table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Урок</th>
+      <th scope="col">spain</th>
+      <th scope="col">russian</th>
+      <th scope="col">сложное</th>
+      <th scope="col">выучено</th>
+      <th scope="col">info</th>
+      <th scope="col">edit</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for word in spain_words %}
+    <tr>
+      <td>{{word.lesson}}</td>
+      <td>{{word.spain}}</td>
+      <td>{{word.russian}}</td>
+      <td>{{word.heavy}}</td>
+      <td>{{word.learned}}</td>
+      <td>{{word.info}}</td>
+      <td><a href="{% url 'spain:update' word.id %}" class="btn text-secondary px-0">
+          <i class="far fa-edit fa-lg">Изменить</i>
+        </a></td>
+
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{% if russian_words %}
+   <table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Урок</th>
+      <th scope="col">spain</th>
+      <th scope="col">russian</th>
+      <th scope="col">сложное</th>
+      <th scope="col">выучено</th>
+      <th scope="col">info</th>
+
+      <th scope="col">edit</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for word in russian_words %}
+    <tr>
+      <td>{{word.lesson}}</td>
+      <td>{{word.spain}}</td>
+      <td>{{word.russian}}</td>
+      <td>{{word.heavy}}</td>
+      <td>{{word.learned}}</td>
+      <td>{{word.info}}</td>
+
+      <td><a href="{% url 'spain:update' word.id %}" class="btn text-secondary px-0">
+          <i class="far fa-edit fa-lg">Изменить</i>
+        </a></td>
+
+
+
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+
+{% endblock %}
