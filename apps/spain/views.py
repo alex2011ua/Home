@@ -182,8 +182,9 @@ class Settings(LoginRequiredMixin, View):
                         spain, russian = item.split("•", 1)
                     elif "-" in item:
                         spain, russian = item.split("-", 1)
-                    if spain.startswith("(to)"):
-                        spain = spain.replace("(to)", "to", 1)
+                    elif "," in item:
+                        spain, russian = item.split(",", 1)
+
                     spain = spain.strip()
                     russian = russian.strip()
 
