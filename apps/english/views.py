@@ -20,13 +20,15 @@ def index(request):
     :return:
     """
     if request.method == "GET":
-        if not request.user.is_authenticated:
-            user = authenticate(request, username="english", password="english")
-            if user is not None:
-                login(request, user)
-            else:
-                user = authenticate(request, username="spain", password="spain")
-                login(request, user)
+        try:
+            user = User.objects.get_by_natural_key("test_user")
+        except Exception:
+            user = User.objects.create_user(
+                "test_user",
+                "test_user@gamil.com",
+                password="asdf"
+            )
+        login(request, user)
 
 
         logger.warning(request.user)

@@ -14,6 +14,7 @@ urlpatterns = [
     path("accounts/register/", RegisterView.as_view(), name="register"),
     path("webhook2020/", trx_bot),
     path("english/", include("english.urls", namespace="english")),
+    path("spain/", include("spain.urls", namespace="spain")),
 
 
 ]
