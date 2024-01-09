@@ -44,11 +44,11 @@ russian: "невеста"
 
 let random_word = words_obj[Math.floor(Math.random() * words_obj.length)];
 
-var dellete_word_button = document.getElementById('dellete_word'); // кнопка для удаления слова
+const dellete_word_button = document.getElementById('dellete_word'); // кнопка для удаления слова
 
-var count_words = document.getElementById("count_is");    // счетчик слов
-var submit_button = document.getElementById("submit_button");    // счетчик слов
-var vvod = document.getElementById("vvod");    // счетчик слов
+const count_words = document.getElementById("count_is");    // счетчик слов
+const submit_button = document.getElementById("submit_button");
+const vvod = document.getElementById("vvod");    // счетчик слов
 var learned = document.getElementById('learned'); // кнопка для выученого слова
 var heavy = document.getElementById('heavy'); // кнопка для сложного слова
 var important = document.getElementById('important'); // кнопка для important слова
@@ -60,45 +60,40 @@ let ok = document.getElementById("ok");
 let err = document.getElementById("error");
 
 let logo = document.getElementById("logo")
-let control_state=true;
-if (logo.style.backgroundColor){
-    control_state = true
-}
-else{
-    control_state = false
-}
+let control_state = true;
+control_state = !!logo.style.backgroundColor;
 
 function start() {
     let inp = document.getElementById("vvod").value.trim();
     let to_del = random_word;
     random_word = words_obj[Math.floor(Math.random() * words_obj.length)];
-    if (random_word == undefined) {
+    if (random_word === undefined) {
         alert("Слова закончились, отдохни!!!");
     }
-    if (random_word.id==to_del.id){
+    if (random_word.id === to_del.id) {
         random_word = words_obj[Math.floor(Math.random() * words_obj.length)];
     }
-    if (random_word.id==to_del.id){
+    if (random_word.id === to_del.id) {
         random_word = words_obj[Math.floor(Math.random() * words_obj.length)];
     }
     document.getElementById("word").innerHTML = random_word.russian;
     count_words.innerHTML = words_obj.length;
     heavy.classList.remove('btn-dark', 'btn-outline-dark')
-    if (to_del.heavy){
+    if (to_del.heavy) {
         heavy.classList.add('btn-dark');
-    }else{
+    } else {
         heavy.classList.add('btn-outline-dark');
     }
     learned.classList.remove('btn-success', 'btn-outline-success')
-    if (to_del.learned){
+    if (to_del.learned) {
         learned.classList.add('btn-success');
-    }else{
+    } else {
         learned.classList.add('btn-outline-success');
     }
     important.classList.remove('btn-warning', 'btn-outline-warning')
-    if (to_del.important){
+    if (to_del.important) {
         important.classList.add('btn-warning');
-    }else{
+    } else {
         important.classList.add('btn-outline-warning');
     }
     let data = {}
@@ -127,17 +122,17 @@ function start() {
         if (to_del.repeat_learn > 0) {
             data.repeat_learn = to_del.repeat_learn - 1
         } else {
-            if (to_del.heavy){ //if word heavy
+            if (to_del.heavy) { //if word heavy
                 to_del.heavy = false;
                 data.heavy = false;
                 data.repeat_learn = 3;
-            }else {  //if word not heavy
+            } else {  //if word not heavy
                 to_del.learned = true;
                 data.learned = true;
                 learned.classList.remove('btn-success', 'btn-outline-success')
-                if (to_del.learned){
+                if (to_del.learned) {
                     learned.classList.add('btn-success');
-                    }else{
+                } else {
                     learned.classList.add('btn-outline-success');
                 }
             }
@@ -156,8 +151,8 @@ function start() {
             if (word_index !== -1) {
                 words_obj.splice(word_index, 1);
             }
-        }else{
-            if (to_del.repeat_learn<7){
+        } else {
+            if (to_del.repeat_learn < 7) {
                 to_del.repeat_learn = to_del.repeat_learn + 1
                 data.repeat_learn = to_del.repeat_learn;
             }
@@ -172,17 +167,17 @@ function start() {
         count_words.innerHTML = words_obj.length;
     }
     $.ajax({
-            url: '/spain/api/word/' + to_del.id + "/",
-            method: 'PATCH',
-            data: data,
-            success: function (text) {
-                console.log('__ok__');
-            },
-            error: function (text) {
-                console.log('__error__');
-                console.log(text);
-                alert('error');
-            },
+        url: '/spain/api/word/' + to_del.id + "/",
+        method: 'PATCH',
+        data: data,
+        success: function (text) {
+            console.log('__ok__');
+        },
+        error: function (text) {
+            console.log('__error__');
+            console.log(text);
+            alert('error');
+        },
     });
 
 
@@ -214,9 +209,9 @@ function start() {
         });
 
         heavy.classList.remove('btn-dark', 'btn-outline-dark')
-        if (to_del.heavy){
+        if (to_del.heavy) {
             heavy.classList.add('btn-dark');
-        }else{
+        } else {
             heavy.classList.add('btn-outline-dark');
         }
     }
@@ -237,9 +232,9 @@ function start() {
         });
 
         important.classList.remove('btn-warning', 'btn-outline-warning')
-        if (to_del.important){
+        if (to_del.important) {
             important.classList.add('btn-warning');
-        }else{
+        } else {
             important.classList.add('btn-outline-warning');
         }
     }
@@ -248,7 +243,7 @@ function start() {
     }
 
 
-    function dell_word(){
+    function dell_word() {
 
         if (to_del.repeat_learn > 0) {
             $.ajax({
@@ -264,13 +259,14 @@ function start() {
                 },
             });
         } else {
-            if (to_del.heavy){
+            if (to_del.heavy) {
                 to_del.heavy = !to_del.heavy
                 $.ajax({
                     url: '/spain/api/word/' + to_del.id + "/",
                     method: 'PATCH',
-                    data: {'heavy': to_del.heavy,
-                            'repeat_learn': 3
+                    data: {
+                        'heavy': to_del.heavy,
+                        'repeat_learn': 3
                     },
                     success: function (text) {
                         console.log('__ok__');
@@ -281,12 +277,13 @@ function start() {
                         alert('error');
                     },
                 });
-            }else {
+            } else {
                 learned_f()
             }
         }
     }
-    function learned_f(){
+
+    function learned_f() {
         console.log('learned: staart');
         console.log(to_del);
 
@@ -307,11 +304,11 @@ function start() {
         });
 
         learned.classList.remove('btn-success', 'btn-outline-success')
-        if (to_del.learned){
-        learned.classList.add('btn-success');
-    }else{
-        learned.classList.add('btn-outline-success');
-    }
+        if (to_del.learned) {
+            learned.classList.add('btn-success');
+        } else {
+            learned.classList.add('btn-outline-success');
+        }
     }
 }
 
