@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
     "rest_framework",
+
     # custom apps
     "apps.english",
     "apps.spain",
@@ -157,7 +158,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-
+TELEGRAM_BOT_HANDLERS_CONF = "apps.start.handlers"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))

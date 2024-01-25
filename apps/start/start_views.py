@@ -1,25 +1,31 @@
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 from django.views import View
-
+from django.http import HttpResponse
 from apps.english.models import WordParams
 
 
-from .registration_form import UserRegistrationForm
+from AlexUA_Home.registration_form import UserRegistrationForm
+
+
+class EmailFormSabmit(View):
+    @staticmethod
+    def post(request, *args, **kwargs):
+        print(request.POST)
+        return HttpResponse("OK", status=200)
 
 
 class IndexView(View):
     @staticmethod
     def get(request):
-        context = {
-            "s_yers": [2016],
-            "po_yers": [2018],
-            "price_ot": 10000,
-            "price_do": 10500,
-            "type": ["1", "4", "6"],
-            "gearbox": ["2", "3"],
-        }
-        return render(request, "start/index.html", context)
+        context = {"inline": "none"}
+        return render(request, "start/index.html", context=context)
+
+
+    @staticmethod
+    def post(request):
+        print(request.POST)
+        return render(request, "start/index.html", context={"inline": ""})
 
 
 class RegisterView(View):
