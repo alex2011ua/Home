@@ -1,3 +1,7 @@
 fly.toml
 .git/
 *.sqlite3
+data
+pgadmin
+staticfiles
+MyResume.zip

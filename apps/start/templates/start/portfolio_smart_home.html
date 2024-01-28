@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Detail Smart Home</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css'%}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: MyResume
+  * Updated: Nov 17 2023 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items">
+
+                <div class="swiper-slide">
+                  <img src="{% static 'assets/img/portfolio/smart_home.gif'%}" alt="">
+                </div>
+                  <div class="swiper-slide swiper-3d">
+                  <img  src="{% static 'assets/img/portfolio/smart_home2.webp'%}" alt="">
+                </div>
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Project information</h3>
+              <ul>
+                <li><strong>Category</strong>: Pet project "Samrt Home"</li>
+                <li><strong>Project date</strong>: January 2020 - June 2021</li>
+                <li><strong>GitHub</strong>: <a href="https://github.com/alex2011ua/smart_home">https://github.com/alex2011ua/smart_home</a></li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>Pet project "Samrt Home"</h2>
+              <p>
+                  <p class="mb-3">
+              Implemented a smart home project by using<abbr class="names"> Django</abbr>.<br>
+              Running server on mini computer <abbr class="names"> Raspberry</abbr> on which installed and configured <abbr class="names"> Nginx</abbr>, <abbr class="names"> Gunicorn</abbr>.<br>
+              Controller <abbr class="names"> Arduino</abbr> connected to the server  to work with sensors.<br>
+              With the help of <abbr class="names"> Celery</abbr>, I set up regular polling of sensors and performing lengthy operations.<br>
+
+            </p>
+            <div class="center">Implemented functionality:</div>
+
+              <ul>
+                <li>The API requests the weather forecast once a day for automatic watering.</li>
+                <li>In winter, remote control of street illumination is implemented.</li>
+                <li>Recording in the database and displaying the values of various sensors on the site, namely: temperature, door opening, air quality, etc., are connected and implemented.</li>
+                <li>Implemented remote control of various devices.</li>
+                <li>Connected Telegram and Viber bots to get important information.</li>
+                <li>Identification and authentication of the user by built-in means <abbr class="names"> Django</abbr>.</li>
+                <li>Admin panel connected.</li>
+              </ul>
+
+            <p>
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js'%}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js'%}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/typed.js/typed.umd.js'%}"></script>
+  <script src="{% static 'assets/vendor/waypoints/noframework.waypoints.js'%}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js'%}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js'%}"></script>
+
+</body>
+
+</html>
