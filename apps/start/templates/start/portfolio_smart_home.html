@@ -1,0 +1,72 @@
+{% extends "start/base.html" %}
+{% load static %}
+{% block main %}
+
+  <main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items">
+
+                <div class="swiper-slide">
+                  <img src="{% static 'assets/img/portfolio/smart_home.gif'%}" alt="">
+                </div>
+                  <div class="swiper-slide swiper-3d">
+                  <img  src="{% static 'assets/img/portfolio/smart_home2.webp'%}" alt="">
+                </div>
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Project information</h3>
+              <ul>
+                <li><strong>Category</strong>: Pet project "Samrt Home"</li>
+                <li><strong>Project date</strong>: January 2020 - June 2021</li>
+                <li><strong>GitHub</strong>: <a href="https://github.com/alex2011ua/smart_home">https://github.com/alex2011ua/smart_home</a></li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>Pet project "Samrt Home"</h2>
+              <p>
+                  <p class="mb-3">
+              Implemented a smart home project by using<abbr class="names"> Django</abbr>.<br>
+              Running server on mini computer <abbr class="names"> Raspberry</abbr> on which installed and configured <abbr class="names"> Nginx</abbr>, <abbr class="names"> Gunicorn</abbr>.<br>
+              Controller <abbr class="names"> Arduino</abbr> connected to the server  to work with sensors.<br>
+              With the help of <abbr class="names"> Celery</abbr>, I set up regular polling of sensors and performing lengthy operations.<br>
+
+            </p>
+            <div class="center">Implemented functionality:</div>
+
+              <ul>
+                <li>The API requests the weather forecast once a day for automatic watering.</li>
+                <li>In winter, remote control of street illumination is implemented.</li>
+                <li>Recording in the database and displaying the values of various sensors on the site, namely: temperature, door opening, air quality, etc., are connected and implemented.</li>
+                <li>Implemented remote control of various devices.</li>
+                <li>Connected Telegram and Viber bots to get important information.</li>
+                <li>Identification and authentication of the user by built-in means <abbr class="names"> Django</abbr>.</li>
+                <li>Admin panel connected.</li>
+              </ul>
+
+            <p>
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+{% endblock %}

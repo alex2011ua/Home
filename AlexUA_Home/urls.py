@@ -16,9 +16,8 @@ Including another URLconf
 from django.contrib.auth import views
 from django.contrib import admin
 from django.urls import path, include
-
-from .start_views import IndexView, RegisterView
-
+from apps.start.start_views import RegisterView
+from apps.start.start_views import EmailFormSabmit
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,5 +26,7 @@ urlpatterns = [
     path("accounts/login/", views.LoginView.as_view(), name="login"),
     path("accounts/logout/", views.LogoutView.as_view(), name="logout"),
     path("accounts/register/", RegisterView.as_view(), name="register"),
-    path("", IndexView.as_view(), name="index"),
+    path('', include("apps.start.urls", namespace="start")),
+    path("email_form_submit/", EmailFormSabmit.as_view(), name="index"),
+
 ]

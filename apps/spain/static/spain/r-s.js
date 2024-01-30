@@ -48,7 +48,7 @@ const dellete_word_button = document.getElementById('dellete_word'); // кноп
 
 const count_words = document.getElementById("count_is");    // счетчик слов
 const submit_button = document.getElementById("submit_button");
-const vvod = document.getElementById("vvod");    // счетчик слов
+const vvod = document.getElementById("vvod");
 var learned = document.getElementById('learned'); // кнопка для выученого слова
 var heavy = document.getElementById('heavy'); // кнопка для сложного слова
 var important = document.getElementById('important'); // кнопка для important слова
@@ -61,6 +61,19 @@ let err = document.getElementById("error");
 
 let logo = document.getElementById("logo")
 let control_state = true;
+
+let la_button = document.getElementById('la_button');
+let el_button = document.getElementById('el_button');
+function update_button() {
+    if (random_word.spain.startsWith('la ')  ||  random_word.spain.startsWith('el ') ){
+        la_button.style.display = 'inline';
+        el_button.style.display = 'inline';
+    } else {
+        la_button.style.display = 'none';
+        el_button.style.display = 'none';
+    }
+}
+update_button()
 control_state = !!logo.style.backgroundColor;
 
 function start() {
@@ -78,6 +91,9 @@ function start() {
     }
     document.getElementById("word").innerHTML = random_word.russian;
     count_words.innerHTML = words_obj.length;
+
+    update_button()
+
     heavy.classList.remove('btn-dark', 'btn-outline-dark')
     if (to_del.heavy) {
         heavy.classList.add('btn-dark');

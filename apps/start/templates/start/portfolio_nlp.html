@@ -1,0 +1,52 @@
+{% extends "start/base.html" %}
+{% load static %}
+{% block main %}
+  <main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+
+                <div class="swiper-slide">
+                  <img src="{% static 'assets/img/portfolio/NLP.webp'%}" alt="">
+                </div>
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Project information</h3>
+              <ul>
+                <li><strong>Category</strong>: Application for NLP analysis</li>
+                <li><strong>Project date</strong>: December 2023 - January 2024</li>
+                <li><strong>tech stack</strong>: FastApi, JS, Ttrankit, pycld2, Poliglot</li>
+                <li><strong>GitHub</strong>: <a href="https://github.com/alex2011ua/MeduzzenIntership">https://github.com/alex2011ua/MeduzzenIntership</a></li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+
+              <p>
+                  Parce list of text for piece of texts with different languages, lematize, and clear stop words.
+                  Return list of sentences with sentiment rating.
+            </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+
+{% endblock %}

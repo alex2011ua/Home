@@ -1,0 +1,63 @@
+{% extends "start/base.html" %}
+{% load static %}
+{% block main %}
+
+  <main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+
+                <div class="swiper-slide">
+                  <img src="{% static 'assets/img/portfolio/GiftHub1.webp'%}" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="{% static 'assets/img/portfolio/GiftHub2.webp'%}" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="{% static 'assets/img/portfolio/GiftHub_front.webp'%}" alt="">
+                </div>
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Project information</h3>
+              <ul>
+                <li><strong>Category</strong>: Backend for Online store</li>
+                <li><strong>Project date</strong>: September 2023 -</li>
+                <li><strong>tech stack</strong>: Python, Django, DRF</li>
+                <li><strong>GitHub</strong>: <a href="https://github.com/alex2011ua/OnlineStore">https://github.com/alex2011ua/OnlineStore</a></li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+
+              <p>
+                  Developed and implemented scalable backend infrastructure using Python Django for the
+non-profit multilingual project “Online store GiftHub”. Based on the Django framework with
+DRF. Connected to OpenAI for easier product searches.
+            </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+
+
+
+
+<{% endblock %}
