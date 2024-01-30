@@ -1,40 +1,6 @@
-<!DOCTYPE html>
-{% load static%}
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Oleksii Kovalenko</title>
-
-        <meta content="Oleksii Kovalenko Python developer" name="description">
-        <meta content="Oleksii Kovalenko Python developer" name="keywords">
-        <meta property="og:title" content="Oleksii Kovalenko, Python dev.">
-        <meta property="og:type" content="website">
-{#        <meta property="og:image" content="{% static 'ok.gif' %}">#}
-
-  <!-- Favicons -->
-    <link rel="shortcut icon" type="image/jpg" href="{% static 'favicon.ico' %}"/>
-    <link rel="icon" type="static/png" href="{% static 'favicon.ico' %}" />
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css'%}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css'%}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css'%}" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="{% static 'assets/css/style.css'%}" rel="stylesheet">
-
-</head>
-
-<body>
+{% extends "start/base.html" %}
+{% load static %}
+{% block main %}
 
   <!-- ======= Mobile nav toggle button ======= -->
   <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
@@ -60,13 +26,14 @@
       <p>I'm <span class="typed" data-typed-items="Python Developer"></span></p>
       <div class="social-links">
 
-        <a href="https://www.codewars.com/users/AlexUA83" class="codewars"><i class="bx "> <img src=" {% static 'assets/img/codewars_logo.svg' %}" width="20" alt="codewars"> </i></a>
+        <a href="https://www.codewars.com/users/AlexUA83" class="codewars"><i class="bx "> <img src=" {% static 'assets/img/codewars_logo_black.png' %}" width="20" alt="codewars"> </i></a>
         <a href="https://github.com/alex2011ua" class=""><i class="bx bxl-github"></i></a>
         <a href="https://www.facebook.com/profile.php?id=100002057601437" class="facebook"><i class="bx bxl-facebook"></i></a>
         <a href="https://join.skype.com/invite/JEeELzfC4i0g" class="google-plus"><i class="bx bxl-skype"></i></a>
         <a href="https://t.me/Alex2011UA" class=""><i class="bx bxl-telegram"></i></a>
         <a href="https://wa.me/380685280211" class=""><i class="bx bxl-whatsapp"></i></a>
-        <a href="https://www.linkedin.com/in/oleksii-k-8208501b0/" class="linkedin"><i class="bx bxl-linkedin"></i></a><a href="viber://add?number=0685280211" class=""><i class="bx bxl-viver"><img src=" {% static 'assets/img/viber-logo.png' %}" width="20" alt="viber"></i></a>
+        <a href="https://www.linkedin.com/in/oleksii-k-8208501b0/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <a href="viber://add?number=0685280211" class=""><i class="bx bxl-viver"><img src=" {% static 'assets/img/viber-logo_black.png' %}" width="20" alt="viber"></i></a>
       </div>
     </div>
   </section><!-- End Hero -->
@@ -84,13 +51,12 @@
 
         <div class="row">
           <div class="col-lg-4">
-            <img src="{% static 'assets/img/photo_2023-10-25_07-34-17.jpg'%}" class="img-fluid" alt="">
+            <img src="{% static 'assets/img/Oleksii_Kovalenko.webp'%}" class="img-fluid" alt="">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content">
             <h3>Python Developer.</h3>
             <p class="fst-italic">
-              I am a developer, I study <abbr>Python</abbr>, <abbr>JS</abbr> and&nbsp;
-              <abbr>C.</abbr> I do a good back-end and I want to find a job and make new friends.
+              Associated with IT all my life, engaged in maintenance and adjustment computer and office equipment. At the beginning of 2020, I decided to try my hand at software development.
             </p>
             <div class="row">
               <div class="col-lg-6">
@@ -104,9 +70,9 @@
               <div class="col-lg-6">
                 <ul>
                   <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>40</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Master</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Specialist</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>alex2011ua@gmail.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>CV:</strong> <span><a href="https://drive.google.com/file/d/1M1JnooQzQ1szL6PJWBUL8Ji7joBVWpDa/view?usp=drive_link" download=""><i class="bi bi-file-person">Download</i></a></span></li>
                 </ul>
               </div>
             </div>
@@ -141,14 +107,14 @@
           <div class="col-lg-6">
 
             <div class="progress">
-              <span class="skill">Python/Django/Flask/ FastApi /Celery/DRF <i class="val">90%</i></span>
+              <span class="skill">Python / Django / Flask / FastApi / Celery / DRF <i class="val">90%</i></span>
               <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
 
             <div class="progress">
-              <span class="skill">JavaScript/HTML/CSS/AJAX/JQuery <i class="val">60%</i></span>
+              <span class="skill">JavaScript / HTML / CSS / AJAX / JQuery <i class="val">60%</i></span>
               <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
@@ -166,21 +132,21 @@
           <div class="col-lg-6">
 
             <div class="progress">
-              <span class="skill">Docker, Docker Compose, Nginx/Gunicorn <i class="val">50%</i></span>
+              <span class="skill">Docker / Docker Compose / Nginx / Gunicorn <i class="val">50%</i></span>
               <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
 
             <div class="progress">
-              <span class="skill">SQL, NoSQL <i class="val">60%</i></span>
+              <span class="skill">SQL / NoSQL <i class="val">60%</i></span>
               <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
 
             <div class="progress">
-              <span class="skill">NLP/ LLM/ ML <i class="val">35%</i></span>
+              <span class="skill">NLP / LLM / ML <i class="val">35%</i></span>
               <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
@@ -219,12 +185,21 @@
             <h3 class="resume-title">Education</h3>
 
             <div class="resume-item">
+
               <h4>Python marathon.</h4>
               <h5>2022</h5>
+
+
+                <a href="{% static 'assets/img/Certificate SoftServe Marathon.webp' %}" class="highslide rightimg"
+        onclick="return hs.expand(this)">
+    <img src="{% static 'assets/img/Certificate SoftServe Marathon_small.jpg' %}" alt="Certificate" width="120"
+        title="Click to enlarge" /></a>
+
                 <h6>Series OQ № 9797/2022</h6>
               <p><em><a href="https://career.softserveinc.com/en-us/technology/course/practical-python">SoftServ</a> </em></p>
-              <p>Completed the Marathon to gain knowledge and skills in the following technologies: Git (gitHub),
-                  Python, Patterns, Networking, SCRUM, Django, JS Was one of the best students.</p>
+              <p>
+                  Completed the Marathon to gain knowledge and skills in the following technologies: Git (gitHub),
+                  Python, Patterns, Networking, SCRUM, Django, JS Was one of the best students.</p><br>
             </div>
 
 
@@ -237,10 +212,24 @@
             </div>
 
             <div class="resume-item">
-              <h4>Master in Computer Science and Technology.</h4>
-              <h5>2000 - 2005</h5>
+              <h4>Specialist degree of Protection of information in computer systems and networks.</h4>
+              <h5>2004 - 2005</h5>
+                <a href="{% static 'assets/img/diplom_spec.webp' %}" class="highslide rightimg"
+        onclick="return hs.expand(this)">
+    <img src="{% static 'assets/img/diplom_spec_front.png' %}" alt="Diplom"
+        title="Click to enlarge" /></a>
               <p><em>Kyiv National Aviation University</em></p>
-              <p>GPA 4.5</p>
+              <p>GPA 4.6</p>
+            </div>
+            <div class="resume-item">
+              <h4>Bachelor degree of information security.</h4>
+              <h5>2000 - 2004</h5>
+                <a href="{% static 'assets/img/diplom_bak_big.webp' %}" class="highslide rightimg"
+        onclick="return hs.expand(this)">
+    <img src="{% static 'assets/img/diplom_bak.png' %}" alt="Diplom"
+        title="Click to enlarge" /></a>
+              <h6><em>Kyiv National Aviation University</em></h6>
+              <p>Institute of Information and Diagnostic Systems</p>
             </div>
 
 
@@ -258,8 +247,8 @@
                 <li>Based on the Django framework with DRF.</li>
                 <li>Connected to OpenAI for easier product searches.</li>
               </ul>
-                <h6> <a href="https://github.com/alex2011ua/OnlineStore" class="bi-github">Online store "GiftHub"</a></h6>
-                <h6> <a href="https://github.com/Carloteka/carloteka-backend" class="bi-github">Online store "CARLOTEKAd"</a></h6>
+                <h6> <a href="https://github.com/alex2011ua/OnlineStore" class="bi-github"> - Online store "GiftHub"</a></h6>
+                <h6> <a href="https://github.com/Carloteka/carloteka-backend" class="bi-github"> - Online store "CARLOTEKA"</a></h6>
             </div>
             <div class="resume-item">
               <h4>Python developer</h4>
@@ -268,7 +257,7 @@
                 <h6 class=""> FastApi, Ttrankit, pycld2 </h6>
               Implement: cleaning text, language detection, generate base forms of those words, detect
 parts of speech and morphological features, for information retrieval or machine learning, sensitivity analysis.
-                <h6><a href="https://github.com/alex2011ua/MeduzzenIntership" class="bi-github">GitHub</a></h6>
+                <h6><a href="https://github.com/alex2011ua/MeduzzenIntership" class="bi-github"> - GitHub</a></h6>
             </div>
 
             <div class="resume-item">
@@ -295,14 +284,15 @@ parts of speech and morphological features, for information retrieval or machine
               <p><em><a href="https://testprovider.com/ru/search-certificate/tp06832932">Certificate </a> </em></p>
             </div>
             <h3 class="resume-title">Certificate of AWS</h3>
+              <img src="{% static '/assets/img/aws-certified-cloud-practitioner.png'%}" alt="Aws" class="rightimg">
             <div class="resume-item">
 
               <h4>AWS Certified Cloud Practitioner</h4>
 
               <h5>June 08, 2023</h5>
-              <p><em><a href="https://www.credly.com/badges/a960c241-834d-4906-92d2-39aee78ab7ce/public_url"><img src="{% static '/assets/img/aws-certified-cloud-practitioner.png'%}" alt="Aws"> </a> </em></p>
+              <p><em><a href="https://www.credly.com/badges/a960c241-834d-4906-92d2-39aee78ab7ce/public_url">Certificate</a> </em></p>
             </div>
-<h3 class="resume-title">Certificate of Stepik online courses</h3>
+            <h3 class="resume-title">Certificate of Stepik online courses</h3>
             <div class="resume-item">
               <h4>«Generation Python»: Programming contests</h4>
               <h5>April 11, 2022</h5>
@@ -409,13 +399,12 @@ parts of speech and morphological features, for information retrieval or machine
 
              <div class="col-lg-4 col-md-6 portfolio-item">
             <div class="portfolio-wrap">
-              <img src="{% static 'assets/img/portfolio/GiftHub1.png'%}" class="img-fluid" alt="">
+              <img src="{% static 'assets/img/portfolio/GiftHub1.webp'%}" class="img-fluid border border-secondary rounded" alt="">
               <div class="portfolio-info">
-                <h4>Online store</h4>
+                  <a href="{% url 'start:portfolio' job='gifthub' %}"   ><h4>Online store</h4>
                 <p>GiftHub</p>
                 <div class="portfolio-links">
-                  <a href="{% static 'assets/img/portfolio/GiftHub1.png'%}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="GiftHub"><i class="bx bx-plus"></i></a>
-                  <a href="{% url 'start:portfolio' job='gifthub' %}" target="_blank"  ><i class="bx bx-link"></i></a>
+                  <i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
@@ -423,13 +412,12 @@ parts of speech and morphological features, for information retrieval or machine
 
           <div class="col-lg-4 col-md-6 portfolio-item">
             <div class="portfolio-wrap">
-              <img src="{% static 'assets/img/portfolio/carloteka_swagger.png'%}" class="img-fluid" alt="">
+              <img src="{% static 'assets/img/portfolio/carloteka_swagger.png'%}" class="img-fluid border border-secondary rounded" alt="">
               <div class="portfolio-info">
-                <h4>Online store</h4>
-                <p>GiftHub</p>
+                <a href="{% url 'start:portfolio' job='carloteka' %}"  ><h4>Online store</h4>
+                <p>Carloteka</p>
                 <div class="portfolio-links">
-                  <a href="{% static 'assets/img/portfolio/carloteka_swagger.png'%}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="carloteka"><i class="bx bx-plus"></i></a>
-                  <a href="{% url 'start:portfolio' job='carloteka' %}" target="_blank"  ><i class="bx bx-link"></i></a>
+                  <i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
@@ -438,12 +426,11 @@ parts of speech and morphological features, for information retrieval or machine
 
           <div class="col-lg-4 col-md-6 portfolio-item">
             <div class="portfolio-wrap">
-              <img src="{% static 'assets/img/portfolio/NLP.png'%}" class="img-fluid" alt="">
+              <img src="{% static 'assets/img/portfolio/NLP.webp'%}" class="img-fluid border border-secondary rounded" alt="">
               <div class="portfolio-info">
-                <h4>NLP project</h4>
+                <a href="{% url 'start:portfolio' job='nlp' %}"  ><h4>NLP project</h4>
                 <div class="portfolio-links">
-                  <a href="{% static 'assets/img/portfolio/NLP.png'%}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="NLP"><i class="bx bx-plus"></i></a>
-                  <a href="{% url 'start:portfolio' job='nlp' %}" target="_blank"  ><i class="bx bx-link"></i></a>
+                  <i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
@@ -451,13 +438,12 @@ parts of speech and morphological features, for information retrieval or machine
 
           <div class="col-lg-4 col-md-6 portfolio-item">
             <div class="portfolio-wrap">
-              <img src="{% static 'assets/img/portfolio/smart_home.gif'%}" class="img-fluid" alt="">
+              <img src="{% static 'assets/img/portfolio/smart_home.gif'%}" class="img-fluid border border-secondary rounded" alt="">
               <div class="portfolio-info">
-                <h4>Pet project</h4>
+                <a href="{% url 'start:portfolio' job='smart_home' %}"  ><h4>Pet project</h4>
                 <p>Smart Home</p>
                 <div class="portfolio-links">
-                  <a href="{% static 'assets/img/portfolio/smart_home.gif'%}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Smart Home"><i class="bx bx-plus"></i></a>
-                  <a href="{% url 'start:portfolio' job='smart_home' %}" target="_blank"  ><i class="bx bx-link"></i></a>
+                  <i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
@@ -465,12 +451,11 @@ parts of speech and morphological features, for information retrieval or machine
 
           <div class="col-lg-4 col-md-6 portfolio-item">
             <div class="portfolio-wrap">
-              <img src="{% static 'assets/img/portfolio/avto.gif'%}" class="img-fluid" alt="">
+              <img src="{% static 'assets/img/portfolio/avto.gif'%}" class="img-fluid border border-secondary rounded" alt="">
               <div class="portfolio-info">
-                <h4>Car Selection</h4>
+                <a href="{% url 'start:portfolio' job='auto' %}"  ><h4>Car Selection</h4>
                 <div class="portfolio-links">
-                  <a href="{% static 'assets/img/portfolio/avto.gif'%}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Search auto"><i class="bx bx-plus"></i></a>
-                  <a href="{% url 'start:portfolio' job='auto' %}" target="_blank"  ><i class="bx bx-link"></i></a>
+                  <i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
@@ -670,19 +655,19 @@ parts of speech and morphological features, for information retrieval or machine
           <div class="col-lg-4">
             <div class="info">
               <div class="address">
-                <i class="bi bi-geo-alt"></i>
+                <a href="https://maps.app.goo.gl/JVEdFjxwkzcmx5oh9" target="_blank"><i class="bi bi-geo-alt"></i></a>
                 <h4>Location:</h4>
-                <p>Spain, Madrid, Torrelaguna</p>
+                  <p>Spain, Madrid, Torrelaguna</p>
               </div>
 
               <div class="email">
-                <i class="bi bi-envelope"></i>
+                  <a href="mailto:alex2011ua@gmail.com"><i class="bi bi-envelope"> </i></a>
                 <h4>Email:</h4>
-                <p>alex2011ua@gmail.com</p>
+                  <p>alex2011ua@gmail.com</p>
               </div>
 
               <div class="phone">
-                <i class="bi bi-phone"></i>
+                  <a href="tel:+34624636814"><i class="bi bi-phone"></i></a>
                 <h4>Call:</h4>
                 <p>+34 624 636 814</p>
               </div>
@@ -732,13 +717,14 @@ parts of speech and morphological features, for information retrieval or machine
       <h3>Oleksii Kovalenko</h3>
       <p></p>
       <div class="social-links">
-        <a href="https://www.codewars.com/users/AlexUA83" class="codewars"><i class="bx "> <img src=" {% static 'assets/img/codewars_logo.svg' %}" width="20" alt="codewars"> </i></a>
+        <a href="https://www.codewars.com/users/AlexUA83" class="codewars"><i class="bx "> <img src=" {% static 'assets/img/codewars_logo_white.png' %}" width="20" alt="codewars"> </i></a>
         <a href="https://github.com/alex2011ua" class=""><i class="bx bxl-github"></i></a>
         <a href="https://www.facebook.com/profile.php?id=100002057601437" class="facebook"><i class="bx bxl-facebook"></i></a>
         <a href="https://join.skype.com/invite/JEeELzfC4i0g" class="google-plus"><i class="bx bxl-skype"></i></a>
         <a href="https://t.me/Alex2011UA" class=""><i class="bx bxl-telegram"></i></a>
         <a href="https://wa.me/380685280211" class=""><i class="bx bxl-whatsapp"></i></a>
-        <a href="https://www.linkedin.com/in/oleksii-k-8208501b0/" class="linkedin"><i class="bx bxl-linkedin"></i></a><a href="viber://add?number=0685280211" class=""><i class="bx bxl-viver"><img src=" {% static 'assets/img/viber-logo.png' %}" width="20" alt="viber"></i></a>
+        <a href="https://www.linkedin.com/in/oleksii-k-8208501b0/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <a href="viber://add?number=0685280211"><i class="bx bxl-viver" ><img src=" {% static 'assets/img/viber-logo_white.png' %}" width="20" alt="viber" ></i></a>
 
       </div>
       <div class="copyright">
@@ -756,21 +742,13 @@ parts of speech and morphological features, for information retrieval or machine
 
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+{% endblock %}
 
-  <!-- Vendor JS Files -->
-  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js'%}"></script>
-  <script src="{% static 'assets/vendor/aos/aos.js'%}"></script>
-  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
-  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js'%}"></script>
-  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js'%}"></script>
-  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js'%}"></script>
-  <script src="{% static 'assets/vendor/typed.js/typed.umd.js'%}"></script>
-  <script src="{% static 'assets/vendor/waypoints/noframework.waypoints.js'%}"></script>
-  <script src="{% static 'assets/vendor/php-email-form/validate.js'%}"></script>
+{% block footer %}
+<script src="{% static 'assets/js/highslide/highslide.js'%}" type="text/javascript"></script>
+    <link href="{% static 'assets/js/highslide/highslide.css'%}" rel="stylesheet" property="stylesheet" />
 
-  <!-- Template Main JS File -->
-  <script src="{% static 'assets/js/main.js'%}"></script>
-
-</body>
-
-</html>
+    <script type="text/javascript">
+        hs.graphicsDir = "{% static 'assets/js/highslide/graphics/'%}";
+    </script>
+{% endblock %}
