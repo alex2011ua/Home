@@ -10,6 +10,9 @@ from apps.spain.form import CompareWordForm, LoadWordForm, LoadWordsForm, Search
 from apps.spain.models import WordParamsSpain, Words
 from django.contrib.auth.models import User
 import logging
+
+from apps.spain.test_translate import translate_text
+
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.WARNING)
 logger = logging.getLogger(__name__)
@@ -299,3 +302,7 @@ def word_delete(request, id):
     w = Words.objects.get(id=id)
     w.delete()
     return redirect("spain:list_words")
+
+def word_translate(request, word):
+    tr = translate_text(word, "translate-407614")
+    return render(request, "translate.html", context={"word": tr})

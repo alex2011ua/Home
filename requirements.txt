@@ -12,3 +12,4 @@ djangorestframework==3.14.0
 django-crispy-forms
 crispy-bootstrap5
 python-dotenv
+google-cloud-translate
